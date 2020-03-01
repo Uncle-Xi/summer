@@ -1,0 +1,9 @@
+
+## 自定装载
+org.summerframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.summer.xipa.configuration.MapperScannerConfigurer,\
+com.summer.xirpc.configuration.XiRpcConfigurer,\
+com.summer.xicp.configuration.XiCPConfigurer,\
+com.summer.xikv.configuration.XiKVConfigurer,\
+com.summer.ximq.configuration.XiMQConfigurer,\
+com.summerframework.boot.actuate.configuration.ActuateConfigurer

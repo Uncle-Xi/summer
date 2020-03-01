@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.complete.dao.UserDao">
+
+	<select id="findUserById"
+            parameterType="com.demo.complete.domain.User"
+            resultType="com.demo.complete.domain.User" statementType="PREPARED">
+		SELECT * FROM user WHERE id = #{id}
+		<if test="username != null and username !='' ">
+			AND username like concat('%',#{username},'%')
+			<if test="address != null and address !=''">
+				AND address = #{address}
+			</if>
+		</if>
+	</select>
+
+	<select id="queryUserById"
+			parameterType="com.demo.complete.domain.User"
+			resultType="com.demo.complete.domain.User" >
+		SELECT * FROM user WHERE id = #{id}
+	</select>
+
+	<update id="updateByUserById" parameterType="com.demo.complete.domain.User">
+		update user set username = #{username} where id = #{id}
+	</update>
+
+	<insert id="insertByUser" parameterType="com.demo.complete.domain.User">
+		insert user (id, username) values (#{id}, #{username});
+	</insert>
+
+	<delete id="deleteByUserById" parameterType="com.demo.complete.domain.User">
+		delete from user where id = #{id}
+	</delete>
+</mapper>

@@ -1,0 +1,2 @@
+org.summerframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.summer.xirpc.configuration.XiRpcConfigurer

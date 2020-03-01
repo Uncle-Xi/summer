@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.xipa.dao.UserDao">
+
+	<select id="findUserById"
+			parameterType="com.demo.xipa.domain.User"
+			resultType="com.demo.xipa.domain.User"
+			statementType="PREPARED">
+		SELECT * FROM user WHERE id = #{id}
+		<if test="username != null and username !='' ">
+			AND username like concat('%',#{username},'%')
+			<if test="address != null and address !=''">
+				AND address = #{address}
+			</if>
+		</if>
+	</select>
+
+	<select id="queryUserById"
+			parameterType="com.demo.xipa.domain.User"
+			resultType="com.demo.xipa.domain.User" >
+		SELECT * FROM user WHERE username = #{username}
+	</select>
+
+	<update id="updateByUserById" parameterType="com.demo.xipa.domain.User">
+		update user set username = #{username} where id = #{id}
+	</update>
+
+	<insert id="insertByUser" parameterType="com.demo.xipa.domain.User">
+		insert user (id, username) values (#{id}, #{username});
+	</insert>
+
+	<delete id="deleteByUserById" parameterType="com.demo.xipa.domain.User">
+		delete from user where id = #{id}
+	</delete>
+</mapper>

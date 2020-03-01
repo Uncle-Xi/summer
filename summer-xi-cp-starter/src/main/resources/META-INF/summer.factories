@@ -1,0 +1,4 @@
+
+## 自定装载
+org.summerframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.summer.xicp.configuration.XiCPConfigurer
